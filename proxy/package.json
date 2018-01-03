@@ -1,0 +1,16 @@
+{
+  "name": "https-proxy-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "set NODE_ENV=test | node proxy.js | start https://localhost:8444"
+  },
+  "keywords": [],
+  "author": "iklymchuk",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^1.29.0",
+    "node-iframe-replacement": "^0.1.1"
+  }
+}

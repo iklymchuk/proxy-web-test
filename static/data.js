@@ -1,0 +1,1 @@
+var test = 'https://localhost:8443/js/google.test.js';

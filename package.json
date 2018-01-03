@@ -1,0 +1,20 @@
+{
+  "name": "proxy-web-test",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "set NODE_ENV=test | node index.js | start https://localhost:8443/admin",
+    "proxy": "npm start --prefix {PROJECT_ROOT}/proxy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^1.29.0",
+    "express": "^4.16.2",
+    "express-http-proxy": "^1.1.0",
+    "npm-run": "^4.1.2",
+    "socket.io": "^2.0.4"
+  }
+}

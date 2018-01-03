@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin</title>
+</head>
+<body>
+    <h1>Admin page</h1>
+
+    <label for="url">Portal:</label>
+    <input type="text" id="url"/>
+
+    <label for="test">Test:</label>
+    <input type="text" id="test"/>
+
+    <button id="send">go</button>
+    <ul id="list"></ul>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+        //our implementation
+        var socket = io('/admin', {transports: ['websocket'], upgrade: false});
+     
+        document.getElementById('send').addEventListener('click', (e) => {
+            socket.emit('url', document.getElementById('url').value);
+            socket.emit('test', document.getElementById('test').value);
+        })
+
+        socket.on('url', (url) => {
+            var li = document.createElement('li');
+            li.appendChild(document.createTextNode(url + ' will be proxy'));
+            document.getElementById('list').appendChild(li);
+        });
+
+        socket.on('test', (test) => {
+            var li = document.createElement('li');
+            li.appendChild(document.createTextNode(test + ' will be executed'));
+            document.getElementById('list').appendChild(li);
+        });
+        
+    </script>
+
+</body>
+</html>
